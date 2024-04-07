@@ -1,7 +1,7 @@
 # Product-API
 
 ## Overview
-This is a RESTful APIs designed for managing products, their categories, and consumption history. It provides endpoints for creating, retrieving, updating, and deleting products and categories, as well as recording product consumption history.
+This is a RESTful API designed for managing products, their categories, and consumption history. It provides endpoints for creating, retrieving, updating, and deleting products and categories, as well as recording product consumption history.
 
 ## Technologies Used
 - Java
