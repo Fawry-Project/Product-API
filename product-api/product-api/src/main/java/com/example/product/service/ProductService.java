@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface ProductService {
     Product createProduct(ProductDTO productDTO);
-    List<ProductDTO> getAllProducts();
+    List<Product> getAllProducts();
     Page<Product> getAllProductsPageable(Pageable pageable);
     List<Product> findByCategoryName(String categoryName);
     Product findByCode(String code);

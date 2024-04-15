@@ -9,4 +9,7 @@ import org.mapstruct.Mapping;
 public interface ProductMapper {
     @Mapping(source = "category.name", target = "categoryName")
     ProductDTO productToProductDTO(Product product);
+
+    @Mapping(source = "categoryName", target = "category.name")
+    Product productDTOToProduct(ProductDTO productDTO);
 }

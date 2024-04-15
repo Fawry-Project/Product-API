@@ -35,10 +35,10 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Product createProduct(ProductDTO productDTO) {
+        Category category = categoryService.findByName(productDTO.getCategoryName());
         if (!validToSave(productDTO)){
             throw new CreateProductException("Not Valid Data Provided To Create Product");
         }
-        Category category = categoryService.findByName(productDTO.getCategoryName());
         Product product = new Product(category,
                 UUID.randomUUID().toString(),
                 productDTO.getDescription(),
@@ -58,11 +58,8 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<ProductDTO> getAllProducts() {
-        List<Product> productList = productRepository.findAll();
-        return productList.stream()
-                .map(productMapper::productToProductDTO)
-                .collect(Collectors.toList());
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
     }
 
     @Override
