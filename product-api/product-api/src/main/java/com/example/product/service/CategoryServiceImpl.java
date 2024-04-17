@@ -22,6 +22,9 @@ public class CategoryServiceImpl implements CategoryService{
         if(categoryDTO == null || categoryDTO.getCategoryName().isEmpty() ) {
             throw new CreateCategoryException("Not Valid Data Provided For Create Category");
         }
+        if(categoryRepository.findByName(categoryDTO.getCategoryName()) != null){
+            throw new CreateCategoryException("Category With Name: '" + categoryDTO.getCategoryName() + "' is Already exist!");
+        }
         Category category = new Category(categoryDTO.getCategoryName());
         return categoryRepository.save(category);
     }

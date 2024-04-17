@@ -28,7 +28,7 @@ public class ProductConsumptionController {
         return pcService.findByProductCode(code);
     }
 
-    @GetMapping("product-order")
+    @PostMapping("product-order")
     public ProductConsumptionDTO getProductOrder(@RequestBody ProductOrderDTO productOrderDTO){
         return pcService.findByProductCodeAndOrderCode(productOrderDTO.getProductCode(), productOrderDTO.getOrderCode());
     }
